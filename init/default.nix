@@ -98,6 +98,8 @@ jobs:
   docker:
    - image: nixorg/nix:circleci
   steps:
+   - mkdir -p ~/.config/nixpkgs
+   - echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix
    - checkout
    - run: nix-shell --run 'nsc-test'
 '';
