@@ -13,6 +13,7 @@ let
 in
 {
  buildInputs = [
+  pkgs.google-chrome
   script
  ];
 }

@@ -3,6 +3,11 @@
  :deps true
  :builds
  {
+  :ci
+  {:target :karma
+   :output-to "target/ci.js"
+   :ns-regexp ".*"}
+
   :index
   {:target :browser
    :output-dir "public/js/index"

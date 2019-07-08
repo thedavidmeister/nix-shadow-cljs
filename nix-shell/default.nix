@@ -1,4 +1,14 @@
-{ pkgs, clojure, flush, init, node, serve, shadow-cljs, test }:
+{
+ pkgs,
+ clojure,
+ flush,
+ init,
+ karma,
+ node,
+ serve,
+ shadow-cljs,
+ test
+}:
 let
 in
 {
@@ -8,6 +18,7 @@ in
  ++ clojure.buildInputs
  ++ flush.buildInputs
  ++ init.buildInputs
+ ++ karma.buildInputs
  ++ node.buildInputs
  ++ serve.buildInputs
  ++ shadow-cljs.buildInputs

@@ -16,10 +16,17 @@
   },
   "homepage": "https://github.com/thedavidmeister/nix-shadow-cljs#readme",
   "dependencies": {
+    "karma": "^4.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cljs-test": "^0.1.0",
+    "karma-firefox-launcher": "^1.1.0",
     "local-web-server": "^3.0.4",
     "shadow-cljs": "^2.8.40"
   },
   "devDependencies": {},
   "keywords": [],
+  "directories": {
+    "test": "test"
+  },
   "description": ""
 }

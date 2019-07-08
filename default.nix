@@ -1,19 +1,20 @@
 let
  pkgs = import ./nixpkgs;
 
- clojure = pkgs.callPackage ./clojure { };
- flush = pkgs.callPackage ./flush { };
- init = pkgs.callPackage ./init { };
- karma = pkgs.callPackage ./karma { };
- node = pkgs.callPackage ./node { };
- serve = pkgs.callPackage ./serve { };
- shadow-cljs = pkgs.callPackage ./shadow-cljs { };
- test = pkgs.callPackage ./test { };
+ clojure = pkgs.callPackage ./clojure { pkgs = pkgs; };
+ flush = pkgs.callPackage ./flush { pkgs = pkgs; };
+ init = pkgs.callPackage ./init { pkgs = pkgs; };
+ karma = pkgs.callPackage ./karma { pkgs = pkgs; };
+ node = pkgs.callPackage ./node { pkgs = pkgs; };
+ serve = pkgs.callPackage ./serve { pkgs = pkgs; };
+ shadow-cljs = pkgs.callPackage ./shadow-cljs { pkgs = pkgs; };
+ test = pkgs.callPackage ./test { pkgs = pkgs; };
 
  shadow-cljs-shell = pkgs.callPackage ./nix-shell {
   pkgs = pkgs;
   clojure = clojure;
   init = init;
+  karma = karma;
   flush = flush;
   node = node;
   serve = serve;
