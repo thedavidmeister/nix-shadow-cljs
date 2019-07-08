@@ -94,7 +94,7 @@ version: 2
 jobs:
  build:
   environment:
-   NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs-channels/tarball/${pkgs.rev}
+   NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs/tarball/${pkgs.rev}
   docker:
    - image: nixorg/nix:circleci
   steps:

@@ -9,3 +9,4 @@ jobs:
   steps:
    - checkout
    - run: nix-shell --run nsc-test
+
