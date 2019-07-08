@@ -72,19 +72,13 @@ pom.xml.asc
   karma-conf = ''
 module.exports = function (config) {
     config.set({
-        browsers: ["ChromeHeadlessNoSandbox"],
-        customLaunchers: {
-         ChromeHeadlessNoSandbox: {
-          base: "ChromeHeadless",
-          flags: ["--no-sandbox"]
-         }
-        },
+        browsers: ["FirefoxHeadless"],
         // The directory where the output file lives
         basePath: "target",
         // The file itself
         files: ["ci.js"],
         frameworks: ["cljs-test"],
-        plugins: ["karma-cljs-test", "karma-chrome-launcher"],
+        plugins: ["karma-cljs-test", "karma-firefox-launcher"],
         colors: true,
         logLevel: config.LOG_INFO,
         client: {
@@ -105,8 +99,6 @@ jobs:
   docker:
    - image: nixorg/nix:circleci
   steps:
-   - run: mkdir -p ~/.config/nixpkgs
-   - run: echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix
    - checkout
    - run: nix-shell --run 'nsc-test'
 '';
