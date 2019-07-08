@@ -3,10 +3,9 @@ version: 2
 jobs:
  build:
   environment:
-   NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs-channels/tarball/dfe72aa4e5951591b37b9f3845e27bd620d0d867
+   NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs/tarball/dfe72aa4e5951591b37b9f3845e27bd620d0d867
   docker:
    - image: nixorg/nix:circleci
   steps:
    - checkout
    - run: nix-shell --run nsc-test
-
