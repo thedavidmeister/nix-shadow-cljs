@@ -27,6 +27,15 @@ node_modules
 .nrepl-port
 '';
 
+  index-html = ''
+<!DOCTYPE html>
+<html>
+ <head>
+   <script src="/public/js/index/main.js"></script>
+ </head>
+</html>
+'';
+
   # simple npx wrapper to avoid global install
   script = pkgs.writeShellScriptBin name ''
   set -euxo pipefail
@@ -35,6 +44,7 @@ node_modules
   npm install --save local-web-server@3.0.4
   echo '${shadow-cljs-edn}' > ./shadow-cljs.edn
   echo '${gitignore}' > ./.gitignore
+  echo '${index-html}' > ./public/index.html
   '';
 
 in
