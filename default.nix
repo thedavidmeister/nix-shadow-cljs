@@ -3,6 +3,7 @@ let
 
  clojure = pkgs.callPackage ./clojure { };
  flush = pkgs.callPackage ./flush { };
+ init = pkgs.callPackage ./init { };
  node = pkgs.callPackage ./node { };
  serve = pkgs.callPackage ./serve { };
  shadow-cljs = pkgs.callPackage ./shadow-cljs { };
@@ -10,6 +11,7 @@ let
  shadow-cljs-shell = pkgs.callPackage ./nix-shell {
   pkgs = pkgs;
   clojure = clojure;
+  init = init;
   flush = flush;
   node = node;
   serve = serve;
