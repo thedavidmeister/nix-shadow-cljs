@@ -7,6 +7,7 @@ in
  buildInputs = []
  ++ clojure.buildInputs
  ++ flush.buildInputs
+ ++ init.buildInputs
  ++ node.buildInputs
  ++ serve.buildInputs
  ++ shadow-cljs.buildInputs
