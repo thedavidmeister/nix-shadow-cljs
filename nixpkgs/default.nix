@@ -2,13 +2,14 @@ let
   # https://vaibhavsagar.com/blog/2018/05/27/quick-easy-nixpkgs-pinning/
   inherit (import <nixpkgs> {}) fetchgit;
 
-  rev = "dfe72aa4e5951591b37b9f3845e27bd620d0d867";
+  rev = "e9a5a28aa657bdc3170ed378693f18dfbb79fdb5";
+  sha256 = "08ajj01v6jqhy9qhw5r4rp18ws77xfphdpzbsbb8461hqq48vz4p";
 
   # nixos holo-host channel @ 2019-04-02
   pkgs = import (fetchgit {
    url = "https://github.com/NixOS/nixpkgs.git";
    rev = rev;
-   sha256 = "07mzi5qhrcxam2syzq2p20sngkyh48qxb3g0qgkvmyyghqdj56w9";
+   sha256 = sha256;
   }) { };
 
 in

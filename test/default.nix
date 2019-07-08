@@ -13,7 +13,10 @@ let
 in
 {
  buildInputs = [
-  pkgs.firefox
   script
- ];
+ ]
+ # BYO firefox on mac!
+ # https://github.com/NixOS/nixpkgs/issues/53979
+ ++ pkgs.lib.optionals (! pkgs.stdenv.isDarwin) [ pkgs.firefox ]
+ ;
 }
