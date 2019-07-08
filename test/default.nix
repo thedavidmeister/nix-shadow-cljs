@@ -7,7 +7,7 @@ let
   script = pkgs.writeShellScriptBin name ''
   set -euxo pipefail
   shadow-cljs compile ci
-  karma start --single-run
+  karma start --single-run --browsers ChromeHeadlessNoSandbox
   '';
 
 in
