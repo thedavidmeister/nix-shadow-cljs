@@ -1,4 +1,4 @@
-{ pkgs, clojure, flush, node, serve, shadow-cljs }:
+{ pkgs, clojure, flush, init, node, serve, shadow-cljs }:
 let
 in
 {
