@@ -8,13 +8,13 @@ let
   set -euxo pipefail
   shadow-cljs compile ci
   # https://github.com/karma-runner/karma-chrome-launcher/issues/158
-  karma start --single-run --browsers ChromeHeadlessNoSandbox
+  karma start --single-run --browsers FirefoxHeadless
   '';
 
 in
 {
  buildInputs = [
-  pkgs.google-chrome
+  pkgs.firefox
   script
  ];
 }
