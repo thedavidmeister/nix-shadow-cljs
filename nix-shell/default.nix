@@ -1,4 +1,4 @@
-{ pkgs, clojure, flush, init, node, serve, shadow-cljs }:
+{ pkgs, clojure, flush, init, node, serve, shadow-cljs, test }:
 let
 in
 {
@@ -11,6 +11,7 @@ in
  ++ node.buildInputs
  ++ serve.buildInputs
  ++ shadow-cljs.buildInputs
+ ++ test.buildInputs
  ;
 
  shellHook = ''

@@ -4,9 +4,11 @@ let
  clojure = pkgs.callPackage ./clojure { };
  flush = pkgs.callPackage ./flush { };
  init = pkgs.callPackage ./init { };
+ karma = pkgs.callPackage ./karma { };
  node = pkgs.callPackage ./node { };
  serve = pkgs.callPackage ./serve { };
  shadow-cljs = pkgs.callPackage ./shadow-cljs { };
+ test = pkgs.callPackage ./test { };
 
  shadow-cljs-shell = pkgs.callPackage ./nix-shell {
   pkgs = pkgs;
@@ -16,6 +18,7 @@ let
   node = node;
   serve = serve;
   shadow-cljs = shadow-cljs;
+  test = test;
  };
 
  # functions cannot be handled by mkDerivation

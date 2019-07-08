@@ -3,12 +3,28 @@ let
 
   name = "nsc-init";
 
+  deps-edn = ''
+{
+ :deps
+ {
+  org.clojure/clojurescript
+  {:mvn/version "1.10.520"}
+
+  thheller/shadow-cljs
+  {:mvn/version "2.8.40"}}}
+'';
+
   shadow-cljs-edn = ''
 ;; shadow-cljs configuration
 {
  :deps true
  :builds
  {
+  :test
+  {:target :karma
+   :output-to "target/ci.js"
+   :ns-regexp ".*"}}}
+
   :index
   {:target :browser
    :output-dir "public/js/index"
@@ -19,12 +35,28 @@ let
 '';
 
   gitignore = ''
-.cpcache
+node_modules/
 .npm
-.shadow-cljs
 public/js
-node_modules
-.nrepl-port
+
+/target
+/checkouts
+/src/gen
+
+pom.xml
+pom.xml.asc
+*.iml
+*.jar
+*.log
+.shadow-cljs
+.idea
+.lein-*
+.nrepl-*
+.DS_Store
+
+.hgignore
+.hg/
+.cpcache
 '';
 
   index-html = ''
@@ -40,8 +72,12 @@ node_modules
   script = pkgs.writeShellScriptBin name ''
   set -euxo pipefail
   npm init -y
-  npm install --save shadow-cljs@2.8.40
-  npm install --save local-web-server@3.0.4
+  npm install --save \
+   shadow-cljs@2.8.40 \
+   local-web-server@3.0.4 \
+   karma@4.1.0 \
+   karma-chrome-launcher@2.2.0 \
+   karma-cljs-test@0.1.0
   echo '${shadow-cljs-edn}' > ./shadow-cljs.edn
   echo '${gitignore}' > ./.gitignore
   echo '${index-html}' > ./public/index.html
