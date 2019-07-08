@@ -28,5 +28,5 @@
   "directories": {
     "test": "test"
   },
-  "description": ""
+  "description": "Base nix for shadow-cljs projects"
 }
