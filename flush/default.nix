@@ -1,8 +1,7 @@
 { pkgs }:
 let
 
-  # simple npx wrapper to avoid global install
-  script = pkgs.writeShellScriptBin "flush" ''
+  script = pkgs.writeShellScriptBin "nsc-flush" ''
   set -euxo pipefail
   rm -f ./package-lock.json
   rm -rf ./.npm
